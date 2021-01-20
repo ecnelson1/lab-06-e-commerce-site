@@ -22,7 +22,7 @@ const buckWitch = {
     category: 'Religion',
     price: 22.00
 };
-const templeGrand= {
+const templeGrand = {
     id: 'Temple Grandin: How the Girl Who Loved Cows Embraced Autism and Changed the World by Sy Montgomery',
     name: 'Temple Grandin: How the Girl Who Loved Cows Embraced Autism and Changed the World',
     image: '../assets/templeGran.png',
@@ -47,12 +47,11 @@ const cantHurtMe = {
     price: 13.98
 };
 
-const books = {
+export const books = [
     midnightLib,
     nRBG,
     buckWitch,
     templeGrand,
     theStand,
     cantHurtMe,
-};
-export default books;
+];

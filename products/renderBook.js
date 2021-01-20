@@ -1,20 +1,20 @@
 export function renderBook(book) {
-    const li = document.createElement('li');
+    const bookli = document.createElement('li');
 
     const img = document.createElement('img');
-    img.src = '../assets/templeGran.png';
+    img.src = book.image;
     img.alt = '';
-    li.append(img);
+    bookli.append(img);
 
     const h3 = document.createElement('h3');
     h3.classList.add('title');
     h3.textContent = book.id;
-    li.append(h3);
+    bookli.append(h3);
     
     const pDesc = document.createElement('p');
     pDesc.classList.add('description');
     pDesc.textContent = book.description + ',category: ' + book.category + ' ';
-    li.append(pDesc);
+    bookli.append(pDesc);
 
     const pPrice = document.createElement('p');
     pPrice.classList.add('price');
@@ -22,10 +22,8 @@ export function renderBook(book) {
     const button = document.createElement('button');
     button.textContent = 'Add';
     pPrice.appendChild(button);
-    li.append(pPrice);
-
+    bookli.append(pPrice);
     
-    
-    return li;
+    return bookli;
 }
 
