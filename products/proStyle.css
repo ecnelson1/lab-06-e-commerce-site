@@ -4,4 +4,50 @@ body {
     width: 100%;
     margin: 0;
     padding: 0;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+img {
+    height: 200px;
+    width: 150px;
+}
+li {
+    display: flex;
+    flex-wrap: wrap;
+    border: solid crimson 1px;
+    height: 100 px;
+    width: 200px;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+}
+
+button {
+    height: 30px;
+    width: 40px;
+    font-weight: bolder;
+    color: crimson;
+    margin-left: 20px;
+}
+
+p {color: crimson;
+text-align: center;
+
+}
+
+h3{
+    color: darkgreen;
+    font-family: fantasy;
+}
+.description{
+    height: 70px;
+    font-size: 14px;
+    overflow: scroll;
+    text-overflow: ellipsis;
+    color: limegreen;
+}
+
+.title{
+    font-size: 18px;
 }
