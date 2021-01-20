@@ -1,4 +1,4 @@
-import { books } from '../products/books.js';
+import { books } from '../books.js';
 import { renderBook } from '../products/renderBook.js';
 
 //empty div to send list data
@@ -9,5 +9,5 @@ for (const book of books){
     //returns DOM element called newBookElement
     const newBook = renderBook(book);
     //adds new DOM element to empty div
-    listedBooks.appendChild(newBook);
+    listedBooks.append(newBook);
 }

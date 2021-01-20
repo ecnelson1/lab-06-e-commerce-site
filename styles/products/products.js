@@ -1,5 +1,5 @@
-import { books } from '../products/books.js';
-import { renderBook } from '../products/renderBook.js';
+import { books } from './books.js';
+import { renderBook } from './renderBook.js';
 
 //empty div to send list data
 const listedBooks = document.getElementById('book-list');

@@ -1,0 +1,17 @@
+body {
+    background-color: black;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+
+}
+
+h1 {
+    font-size: 30px;
+    font-family: fantasy;
+    color: chartreuse;
+
+}
+table {
+    color: red;
+} 
