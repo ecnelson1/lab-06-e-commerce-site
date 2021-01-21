@@ -13,7 +13,6 @@ export function renderLineItem(cart, book){
     const itemPrice = document.createElement('td');
     const priceTotal = calcItemTotal(cart.quantity, book.price);
     itemPrice.textContent = `$${priceTotal.toFixed(2)}`;
-    console.log(priceTotal);
     
     tr.append(itemName, itemQuantity, itemPrice);
     return tr;
