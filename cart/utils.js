@@ -6,7 +6,7 @@ export function findById(id, cart) {
         }
     }}
 
-export function calcItemTotal(quantity, price){
-    const amount = quantity * price;
-    return Math.round((amount + Number.EPSILON) * 100) / 100;
+export function calcItemTotal(cart, book){
+    const amount = cart.quantity * book.price;
+    return amount;
 }
