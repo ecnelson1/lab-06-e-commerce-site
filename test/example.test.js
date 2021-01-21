@@ -1,6 +1,6 @@
 
 import { renderBook } from '../products/renderBook.js';
-import { findById, calcItemTotal } from '../cart/utils.js';
+import { findById, calcItemTotal, calcOrderTotal } from '../cart/utils.js';
 import { books } from '../books.js'; 
 import { renderLineItem } from '../cart/render-line-items.js';
 import { cart } from '../cart/cart-data.js';
@@ -49,5 +49,10 @@ test('renderLineItem should take in an item from the cart and its corresponding 
     const expected = '<tr><td>The Midnight Library by Matt Haig</td><td>1</td><td>$17.00</td></tr>';
     const orderLine = renderLineItem(cart[0], books[0]);
     const actual = orderLine.outerHTML;
+    expect.equal(actual, expected);
+});
+test('calcOrderTotal should take in item total price from each line in the cart and returns the sum of the line item prices', (expect) => {
+    const expected = 220.50;
+    const actual = calcOrderTotal(cart, books);
     expect.equal(actual, expected);
 });
