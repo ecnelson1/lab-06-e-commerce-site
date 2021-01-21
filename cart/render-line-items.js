@@ -5,7 +5,7 @@ export function renderLineItem(cart, book){
     const quantity = cart.quantity;
     itemQuantity.textContent = quantity;
 
-    const tr = document.createElement('tr');
+    const tRow = document.createElement('tr');
 
     const itemName = document.createElement('td');
     itemName.textContent = book.name;
@@ -14,6 +14,6 @@ export function renderLineItem(cart, book){
     const priceTotal = calcItemTotal(cart.quantity, book.price);
     itemPrice.textContent = `$${priceTotal.toFixed(2)}`;
     
-    tr.append(itemName, itemQuantity, itemPrice);
-    return tr;
+    tRow.append(itemName, itemQuantity, itemPrice);
+    return tRow; 
 }

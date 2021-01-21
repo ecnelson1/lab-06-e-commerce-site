@@ -14,4 +14,12 @@ h1 {
 }
 table {
     color: red;
+    text-align: center
 } 
+
+tfoot{
+text-align: end;
+color: chartreuse;
+font-family: fantasy;
+font-size: 30px;
+}
