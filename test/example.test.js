@@ -1,5 +1,7 @@
 // IMPORT MODULES under test here:
 import { renderBook } from '../products/renderBook.js';
+import { findById } from '../cart/utils.js';
+import { books } from '../books.js'; 
 // import { example } from '../example.js';
 
 const test = QUnit.test;
@@ -24,4 +26,27 @@ test('renders a book posting', (expect) => {
     //Expect
     // Make assertions about what is expected versus the actual result
     expect.equal(actual, expected);
+});
+
+test('findById returns The Midnight Library by Matt Haig  when given a 1', (expect) => {
+    //Arrange
+    // Set up your arguments and expectations
+    const cartItem1 = {
+        id: 1,
+        name: 'The Midnight Library by Matt Haig',
+        image: '../assets/midLib.png',
+        description: 'Between life and death there is a library, and within that library, the shelves go on forever. Every book provides a chance to try another life you could have lived. To see how things would be if you had made other choices . . . Would you have done anything different, if you had the chance to undo your regrets?',
+        category: 'feel-good',
+        price: 17.00
+    };
+
+    const expected = cartItem1;
+    
+    //Act 
+    // Call the function you're testing and set the result to a const
+    const actual = findById(1, books);
+
+    //Expect
+    // Make assertions about what is expected versus the actual result
+    expect.deepEqual(actual, expected);
 });
