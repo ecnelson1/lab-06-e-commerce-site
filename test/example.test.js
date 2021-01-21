@@ -3,6 +3,8 @@ import { renderBook } from '../products/renderBook.js';
 import { findById, calcItemTotal } from '../cart/utils.js';
 import { books } from '../books.js'; 
 import { renderLineItem } from '../cart/render-line-items.js';
+import { cart } from '../cart/cart-data.js';
+
 // import { example } from '../example.js';
 
 const test = QUnit.test;
@@ -60,20 +62,21 @@ test('calcItemTotal returns the value of quantity * price when given quantity an
     //Act 
     // Call the function you're testing and set the result to a const
     const actual = calcItemTotal(quantity, price);
+    console.log(actual);
 
     //Expect
     // Make assertions about what is expected versus the actual result
     expect.equal(actual, expected);
 });
 test('renderLineItem should take in an item from the cart and its corresponding product from inventory and return a table row with the name, quantity, and price', (expect) => {
-    const lineItem = {
-        id: 1,
-        quantity: 1
-    };
-    const bookOrder = findById(lineItem.id, books);
-    const expected = '<tr><td>The Midnight Library by Matt Haig</td><td>1</td><td>17.00</td></tr>';
+    // const lineItem = {
+    //     id: 1,
+    //     quantity: 1
+    // };
+    // const bookOrder = findById(lineItem.id, books);
+    const expected = '<tr><td>The Midnight Library by Matt Haig</td><td>1</td><td>$17.00</td></tr>';
     // act
-    const orderLine = renderLineItem(lineItem, bookOrder);
+    const orderLine = renderLineItem(cart[0], books[0]);
     const actual = orderLine.outerHTML;
     
     // assert

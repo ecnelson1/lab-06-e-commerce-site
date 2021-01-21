@@ -7,6 +7,5 @@ export function findById(id, cart) {
     }}
 
 export function calcItemTotal(cart, book){
-    const amount = cart.quantity * book.price;
-    return amount;
+    return cart * book;
 }
