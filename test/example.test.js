@@ -1,7 +1,8 @@
 // IMPORT MODULES under test here:
 import { renderBook } from '../products/renderBook.js';
-import { findById } from '../cart/utils.js';
+import { findById, calcItemTotal } from '../cart/utils.js';
 import { books } from '../books.js'; 
+
 // import { example } from '../example.js';
 
 const test = QUnit.test;
@@ -49,4 +50,18 @@ test('findById returns The Midnight Library by Matt Haig  when given a 1', (expe
     //Expect
     // Make assertions about what is expected versus the actual result
     expect.deepEqual(actual, expected);
+});
+test('calcItemTotal returns the value of quantity * price when given quantity and price of an item', (expect) => {
+    //Arrange
+    // Set up your arguments and expectations
+    const quantity = 3;
+    const price = 16.50;
+    const expected = 49.50;
+    //Act 
+    // Call the function you're testing and set the result to a const
+    const actual = calcItemTotal(quantity, price);
+
+    //Expect
+    // Make assertions about what is expected versus the actual result
+    expect.equal(actual, expected);
 });
