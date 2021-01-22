@@ -1,19 +1,21 @@
-import { calcItemTotal } from './utils.js';
+// import { calcItemTotal } from '../utils.js';
 
-export function renderLineItem(cart, book){
-    const itemQuantity = document.createElement('td');
-    const quantity = cart.quantity;
-    itemQuantity.textContent = quantity;
-
+export function renderLineItem(cartItem, bookItem){
+    const quantity = cartItem.quantity;
     const tRow = document.createElement('tr');
-
+    
     const itemName = document.createElement('td');
-    itemName.textContent = book.name;
-
+    const itemQuantity = document.createElement('td');
     const itemPrice = document.createElement('td');
-    const priceTotal = calcItemTotal(cart.quantity, book.price);
+    
+    itemName.textContent = bookItem.name;
+    itemQuantity.textContent = quantity;
+    const priceTotal = calcItemTotal(cartItem.quantity, bookItem.price);
     itemPrice.textContent = `$${priceTotal.toFixed(2)}`;
     
     tRow.append(itemName, itemQuantity, itemPrice);
     return tRow; 
+}
+export function calcItemTotal(cartItem, bookItem){
+    return cartItem.quantity * bookItem.price;
 }

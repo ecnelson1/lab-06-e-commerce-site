@@ -1,20 +1,37 @@
+import { findById } from '../utils.js';
 
-export function findById(id, cart) {
-    for (let lineItem of cart) {
-        if (lineItem.id === id){
-            return lineItem;
-        }
-    }}
+const emptyCart = [];
+const CART = 'CART';
 
-export function calcItemTotal(cart, book){
-    return cart * book;
+export function setCart(cart){
+    const storageCart = JSON.stringify(cart);
+    localStorage.setItem(CART, storageCart);
 }
-export function calcOrderTotal(cart, books){
-    let orderTotal = 0;
-    for (let orderQuantity of cart){
-        let orderItems = findById(orderQuantity.id, books);
-        let lineTotal = calcItemTotal(orderQuantity.quantity, orderItems.price);
-        orderTotal = orderTotal + lineTotal;
+
+export function getCart(){
+    const storageCart = localStorage.getItem(CART);
+    if (storageCart) {
+        const cartObjects = JSON.parse(storageCart);
+        return cartObjects;
+    } else {
+        const storageCartDefault = JSON.stringify(emptyCart);
+        localStorage.setItem(CART, storageCartDefault);
+        return emptyCart;
+    } 
+}
+export function addToCart(id){
+    const cart = getCart();
+    const selectedBook = findById(id, cart);
+
+    if (selectedBook){
+        selectedBook.quantity++;
     }
-    return orderTotal.toFixed(2);
+    else {
+        const newBook = {
+            id: id,
+            quantity: 1
+        };
+        cart.push(newBook);
+    }
+    setCart(cart);
 }

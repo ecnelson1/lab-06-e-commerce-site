@@ -1,6 +1,6 @@
 
 import { renderBook } from '../products/renderBook.js';
-import { findById, calcItemTotal, calcOrderTotal } from '../cart/utils.js';
+import { findById, calcItemTotal, calcOrderTotal } from '../utils.js';
 import { books } from '../books.js'; 
 import { renderLineItem } from '../cart/render-line-items.js';
 import { cart } from '../cart/cart-data.js';
@@ -17,7 +17,7 @@ test('renders a book posting', (expect) => {
         category: 'Biographical-Farming',
         price: 16.95 };
 
-    const expected = '<li><img src="../assets/templeGran.png" alt=""><h3 class="title">Temple Grandin: How the Girl Who Loved Cows Embraced Autism and Changed the World by Sy Montgomery</h3><p class="description">When Temple Grandin was born, her parents knew she was different. Years later she was diagnosed with autism. Temple’s doctor recommended institutionalizing her, but her mother believed in her. Temple went to school instead. Today, Dr. Temple Grandin, a scientist and professor of animal science at Colorado State University, is an autism advocate and her world-changing career revolutionized the livestock industry. This compelling biography and Temples personal photos take us inside her extraordinary mind and open the door to a broader understanding of autism.,category: Biographical-Farming </p><p class="price">Price: 16.95<button>Add</button></p></li>';
+    const expected = '<li><img src="../assets/templeGran.png" alt=""><h3 class="title">Temple Grandin: How the Girl Who Loved Cows Embraced Autism and Changed the World</h3><p class="description">When Temple Grandin was born, her parents knew she was different. Years later she was diagnosed with autism. Temple’s doctor recommended institutionalizing her, but her mother believed in her. Temple went to school instead. Today, Dr. Temple Grandin, a scientist and professor of animal science at Colorado State University, is an autism advocate and her world-changing career revolutionized the livestock industry. This compelling biography and Temples personal photos take us inside her extraordinary mind and open the door to a broader understanding of autism.,category: Biographical-Farming </p><p class="price">Price: 16.95<button>Add</button></p></li>';
     
     const actual = renderBook(templeGrand).outerHTML;
     expect.equal(actual, expected);

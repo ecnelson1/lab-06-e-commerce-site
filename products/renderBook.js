@@ -1,3 +1,5 @@
+import { addToCart } from '../cart/utils.js';
+import { books } from '../books.js';
 export function renderBook(book) {
     const bookli = document.createElement('li');
 
@@ -8,7 +10,7 @@ export function renderBook(book) {
 
     const h3 = document.createElement('h3');
     h3.classList.add('title');
-    h3.textContent = book.id;
+    h3.textContent = book.name;
     bookli.append(h3);
     
     const pDesc = document.createElement('p');
@@ -19,11 +21,16 @@ export function renderBook(book) {
     const pPrice = document.createElement('p');
     pPrice.classList.add('price');
     pPrice.textContent = 'Price: ' + book.price;
-    const button = document.createElement('button');
-    button.textContent = 'Add';
-    pPrice.appendChild(button);
     bookli.append(pPrice);
-    
+
+    const button = document.createElement('button');
+    pPrice.append(button);
+    button.addEventListener('click', () => {
+        addToCart(book.id);
+        console.log(book.id);
+    });
+    button.textContent = 'Add';
+
     return bookli;
 }
 

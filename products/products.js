@@ -1,4 +1,4 @@
-import { books } from '../products/books.js';
+import { books } from '../books.js';
 import { renderBook } from '../products/renderBook.js';
 
 //empty div to send list data
