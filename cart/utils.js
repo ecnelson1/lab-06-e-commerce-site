@@ -1,7 +1,7 @@
 import { findById } from '../utils.js';
 
 const emptyCart = [];
-const CART = 'CART';
+export const CART = 'CART';
 
 export function setCart(cart){
     const storageCart = JSON.stringify(cart);

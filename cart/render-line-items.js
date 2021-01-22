@@ -9,7 +9,6 @@ export function renderLineItem(cartItem, book){
     
     itemName.textContent = book.name;
     itemQuantity.textContent = quantity;
-    console.log(cartItem, book);
     const priceTotal = calcItemTotal(cartItem, book);
     itemPrice.textContent = `$${priceTotal.toFixed(2)}`;
     

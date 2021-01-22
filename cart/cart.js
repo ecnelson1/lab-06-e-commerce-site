@@ -1,6 +1,6 @@
 import { books } from '../books.js'; 
 import { renderLineItem, calcItemTotal } from '../cart/render-line-items.js';
-import { getCart } from '../cart/utils.js';
+import { getCart, CART } from '../cart/utils.js';
 import { findById } from '../utils.js';
 
 
@@ -10,7 +10,6 @@ const cart = getCart();
 let total = 0;
 for (let orderItems of cart){
     const purchasedItem = findById(orderItems.id, books);
-    console.log(orderItems, books);
     const itemTotal = calcItemTotal(orderItems, purchasedItem);
     total = total + itemTotal;
 
@@ -22,18 +21,20 @@ const td1 = document.createElement('td');
 const td2 = document.createElement('td');
 const td3 = document.createElement('td');
 
-td3.textContent = `Order total: $${total}`;
+td3.textContent = `Order total: $${total.toFixed(2)}`;
 
 tr.append(td1, td2, td3);
 
 displayTotal.append(tr);
 
 
-// const button = document.querySelector('button');
+const button = document.querySelector('button');
 
-// button.addEventListener('click', () => {
-//     const cart = getCart();
+button.addEventListener('click', () => {
+    const cart = getCart();
 
-//     alert(JSON.stringify(cart, true, 2));
+    alert(JSON.stringify(cart, true, 2));
+    localStorage.removeItem(CART);
+    window.location = '../';
 
-// });
+});
