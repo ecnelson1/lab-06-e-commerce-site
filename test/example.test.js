@@ -48,7 +48,7 @@ test('calcItemTotal returns the value of quantity * price when given quantity an
         description: 'Between life and death there is a library, and within that library, the shelves go on forever. Every book provides a chance to try another life you could have lived. To see how things would be if you had made other choices . . . Would you have done anything different, if you had the chance to undo your regrets?',
         category: 'feel-good',
         price: 17.00
-    }
+    };
     const expected = 51;
     const actual = calcItemTotal(cart, midnightLib);
     expect.equal(actual, expected);
