@@ -21,7 +21,7 @@ export function renderBook(book) {
 
     const pPrice = document.createElement('p');
     pPrice.classList.add('price');
-    pPrice.textContent = 'Price: ' + book.price;
+    pPrice.textContent = 'Price: $' + book.price;
     bookli.append(pPrice);
 
     const button = document.createElement('button');
