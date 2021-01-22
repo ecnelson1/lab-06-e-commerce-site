@@ -1,6 +1,7 @@
 import { addToCart } from '../cart/utils.js';
-import { books } from '../books.js';
+
 export function renderBook(book) {
+    
     const bookli = document.createElement('li');
 
     const img = document.createElement('img');
@@ -24,12 +25,11 @@ export function renderBook(book) {
     bookli.append(pPrice);
 
     const button = document.createElement('button');
-    pPrice.append(button);
     button.addEventListener('click', () => {
         addToCart(book.id);
-        console.log(book.id);
     });
-    button.textContent = 'Add';
+    button.textContent = 'Add To Cart';
+    bookli.append(button);
 
     return bookli;
 }
